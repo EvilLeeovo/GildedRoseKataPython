@@ -56,7 +56,15 @@ class SulfurasUpdater(ItemUpdater):
 
 class BackstagePassUpdater(ItemUpdater):
     def update(self):
-        pass
+        if self.item.sell_in <= 0:
+            self.item.quality = 0
+        elif self.item.sell_in <= 5:
+            self.increase_quality(3)
+        elif self.item.sell_in <= 10:
+            self.increase_quality(2)
+        else:
+            self.increase_quality(1)
+        self.decrease_sell_in()
 
 class ConjuredUpdater(ItemUpdater):
     def update(self):
