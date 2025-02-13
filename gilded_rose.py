@@ -68,7 +68,10 @@ class BackstagePassUpdater(ItemUpdater):
 
 class ConjuredUpdater(ItemUpdater):
     def update(self):
-        pass
+        self.decrease_quality(2)
+        self.decrease_sell_in()
+        if self.item.sell_in < 0:
+            self.decrease_quality(2)
 
 class ItemUpdaterFactory:
     @staticmethod
