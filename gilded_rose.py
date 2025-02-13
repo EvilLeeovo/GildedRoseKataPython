@@ -21,12 +21,10 @@ class ItemUpdater(ABC):
         pass
     
     def decrease_quality(self, amount=1):
-        if self.item.quality > 0:
-            self.item.quality = max(0, self.item.quality - amount)
+        self.item.quality = max(0, self.item.quality - amount)
 
     def increase_quality(self, amount=1):
-        if self.item.quality < 50:
-            self.item.quality = min(50, self.item.quality + amount)
+        self.item.quality = min(50, self.item.quality + amount)
 
     def decrease_sell_in(self):
         self.item.sell_in -= 1
@@ -97,4 +95,9 @@ class GildedRose(object):
         for item in self.items:
             updater = ItemUpdaterFactory.get_updater(item)
             updater.update()
-            
+    
+    def get_items(self):
+        return self.items
+
+    def get_item_names(self):
+        return [item.name for item in self.items]
