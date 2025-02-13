@@ -10,15 +10,15 @@ class GildedRoseTest(unittest.TestCase):
 
     # example of test that checks for logical errors
     def test_sulfuras_should_not_decrease_quality(self):
-        items = [Item("Sulfuras", 5, 80)]
+        items = [Item("Sulfuras, Hand of Ragnaros", 5, 80)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
-        self.assertEqual("Sulfuras", items[0].name)
+        self.assertEqual("Sulfuras, Hand of Ragnaros", items[0].name)
 
         sulfuras_item = items[0]
         self.assertEqual(80, sulfuras_item.quality)
         self.assertEqual(5, sulfuras_item.sell_in)
-        self.assertEqual("Sulfuras", sulfuras_item.name)
+        self.assertEqual("Sulfuras, Hand of Ragnaros", sulfuras_item.name)
 
     # example of test that checks for syntax errors
     def test_gilded_rose_list_all_items(self):
