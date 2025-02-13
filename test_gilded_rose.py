@@ -13,7 +13,7 @@ class GildedRoseTest(unittest.TestCase):
         items = [Item("Sulfuras", 5, 80)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
-        self.assertEqual("fixme", items[0].name)
+        self.assertEqual("Sulfuras", items[0].name)
 
         sulfuras_item = items[0]
         self.assertEqual(80, sulfuras_item.quality)
