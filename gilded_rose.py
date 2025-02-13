@@ -40,7 +40,10 @@ class RegularItemUpdater(ItemUpdater):
 
 class AgedBrieUpdater(ItemUpdater):
     def update(self):
-        pass
+        self.increase_quality(1)
+        self.decrease_sell_in()
+        if self.item.sell_in < 0:
+            self.increase_quality(1)
 
 class SulfurasUpdater(ItemUpdater):
     def update(self):
